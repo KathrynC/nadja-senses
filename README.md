@@ -12,6 +12,8 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 4.  **The Inscription Wall:** A synthesis layer that translates sensory gestalts into narrative strategies via Thinker Lenses (Banks, Lovecraft, Poincaré).
 5.  **Thick Walls:** Normalization filters that prevent "Data Cannibalism" by transforming raw data into high-animacy archetypes.
 6.  **The Cascading Flow:** Sensory tracking of "Deep Time" (Underland) and systemic change (Chronos).
+7.  **The Rhythmic Pulse:** Acoustic analysis of meter, prosody, and sonic motifs (IAMBIC pulse vs. BEBOP rupture).
+8.  **The Homophone Synapse:** Detection and resolution of "semantic homophones"—signals that sound the same but originate from disjoint regimes.
 
 ## Installation
 
@@ -43,6 +45,39 @@ from nadja_senses.gallery.thinkers.lenses import THINKERS
 
 banks = THINKERS["iain_banks"]
 print(banks.perspective)
+
+### 3. Scan the Rhythmic Pulse
+
+```python
+from nadja_senses.interior.acoustic import AcousticObserver
+
+history = [
+    {"volatility": 0.5, "momentum": 0.01},
+    {"volatility": 1.8, "momentum": 0.03}, # Stressed syllable (/)
+    {"volatility": 0.4, "momentum": 0.01}, # Unstressed (u)
+    {"volatility": 2.1, "momentum": 0.04}  # Stressed (/)
+]
+
+gestalt = AcousticObserver.scan_ode_rhythm(history)
+print(f"Foot: {gestalt.foot}, Audit: {gestalt.audit}")
+# Output: Foot: IAMBIC, Audit: Healthy pulse. Steady motion.
+
+### 4. Detect Semantic Puns
+
+```python
+from nadja_senses.interior.homophone import HomophoneObserver
+
+active_signals = [
+    {"motif": "spike", "domain": "liquidity", "description": "Injection of capital"},
+    {"motif": "spike", "domain": "volatility", "description": "Margin call cascade"}
+]
+
+observer = HomophoneObserver()
+rhymes = observer.detect_rhymes(active_signals)
+print(observer.generate_pun_report(rhymes))
+# Output: A 'pun' on spike indicates a high-divergence state.
+```
+```
 ```
 
 ## Philosophical Foundation: Rejecting Data Cannibalism
