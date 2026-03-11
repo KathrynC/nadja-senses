@@ -15,66 +15,58 @@ class RecognitionLandmark:
     confidence: float
     description: str
     action_suggestion: str
-    resonance_smell: str # The 'scent' of this archetype
+    resonance_smell: str 
+    precision_word: Optional[str] = None # Pattern 38
+
+from nadja_senses.gallery.archetypes import ARCHETYPES, StorylineArchetype
+from nadja_senses.core.lexicon import LexicalObserver
 
 class RecognitionObserver:
     """The 'Semantic Eye' of the sensorium. Recognizes patterns of power/decay."""
     
     def __init__(self):
-        self.library = {
-            "ARTURO_UI_RISE": {
-                "description": "Recognized: The resistible rise of a disruptor agent.",
-                "indicators": ["sulfurous", "pressure", "dactylic"],
-                "action": "DE-LEVERAGE / MONITOR DISRUPTOR"
-            },
-            "KINDLEBERGER_EUPHORIA": {
-                "description": "Recognized: Speculative displacement and mania.",
-                "indicators": ["sweet", "fruity", "iambic"],
-                "action": "TIGHTEN STOPS / ENJOY THE HARVEST"
-            },
-            "MACFARLANE_UNDERLAND": {
-                "description": "Recognized: Deep-time systemic risk resurfacing.",
-                "indicators": ["woody", "stasis", "caesura"],
-                "action": "LONG-TERM HEDGE / PATIENCE"
-            }
-        }
+        self.archetypes = ARCHETYPES
+        self.lexicon = LexicalObserver()
 
     def recognize(self, current_sensorium: Dict[str, Any]) -> List[RecognitionLandmark]:
-        """Match the current multi-modal sensorium against known archetypes."""
+        """Match the current multi-modal sensorium against high-order archetypes."""
         matches = []
         
-        # Extract primary signals from sensorium
-        smell = current_sensorium.get("smell", "neutral")
-        rhythm = current_sensorium.get("hearing", "unknown")
-        pressure = current_sensorium.get("touch_pressure", 0.5)
-        
-        # Simple rule-based recognition (to be expanded with actual NMF matching)
-        if smell == "sulfurous" and rhythm == "DACTYLIC":
-            matches.append(RecognitionLandmark(
-                "ARTURO_UI_RISE", 0.92,
-                self.library["ARTURO_UI_RISE"]["description"],
-                self.library["ARTURO_UI_RISE"]["action"],
-                "sulfurous"
-            ))
+        for arch in self.archetypes:
+            score = 0.0
+            hits = 0
+            for key, expected_val in arch.recognition_key.items():
+                if current_sensorium.get(key) == expected_val:
+                    hits += 1
             
-        if smell in ["sweet", "fruity"] and rhythm == "IAMBIC":
-            matches.append(RecognitionLandmark(
-                "KINDLEBERGER_EUPHORIA", 0.85,
-                self.library["KINDLEBERGER_EUPHORIA"]["description"],
-                self.library["KINDLEBERGER_EUPHORIA"]["action"],
-                "sweet"
-            ))
+            if hits >= 2: 
+                score = hits / len(arch.recognition_key)
+                
+                # Link to Lexical Precision
+                word_anchor = self.lexicon.find_precision(arch.lakoff_frame)
+                p_word = word_anchor.word if word_anchor else None
+                
+                matches.append(RecognitionLandmark(
+                    name=arch.name,
+                    confidence=score,
+                    description=arch.description,
+                    action_suggestion=f"Navigate per {arch.lakoff_frame} frame.",
+                    resonance_smell=arch.recognition_key.get("smell", "neutral"),
+                    precision_word=p_word
+                ))
             
         return matches
 
     def generate_recognition_report(self, matches: List[RecognitionLandmark]) -> str:
-        """Produce a high-level semantic audit."""
+        """Produce a high-level semantic audit with lexical precision."""
         if not matches:
             return "THE WORLD IS NOVEL. NO KNOWN ARCHETYPES RECOGNIZED."
             
         lines = ["SEMANTIC RECOGNITION REPORT"]
         for m in matches:
             lines.append(f"  ★ Landmark: {m.name} (Confidence: {m.confidence:.2f})")
+            if m.precision_word:
+                lines.append(f"    PRECISION WORD: {m.precision_word.upper()}")
             lines.append(f"    {m.description}")
             lines.append(f"    STRATEGY: {m.action_suggestion}")
         

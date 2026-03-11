@@ -8,8 +8,8 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 
 1.  **The Common Language:** A 10D Olfactory Algebra (Castro NMF) that normalizes all sensations (text, weather, price).
 2.  **The Lateral Line:** Pressure gradient sensing that detects minute vibrations and "shivers" in the distal data stream (Arxiv, News, Climate).
-3.  **Light on Two Sides:** A divergence-detection system that requires multi-domain confirmation for any major signal.
-4.  **The Inscription Wall:** A synthesis layer that translates sensory gestalts into narrative strategies via Thinker Lenses.
+3.  **Light on Two Sides:** A divergence-detection system (Cross-Modal Correlator) that requires multi-domain confirmation for any major signal.
+4.  **The Inscription Wall:** A synthesis layer (Day Inscription) that translates sensory gestalts into narrative strategies via Thinker Lenses.
 5.  **Thick Walls:** Normalization filters that transform raw data into high-animacy archetypes.
 6.  **Chronaception (Temporal Texture):** Internal sense of the passage of "Semantic Time," measuring entropy and thesis erosion.
 7.  **The Rhythmic Pulse:** Acoustic analysis of meter, prosody, and sonic motifs (IAMBIC pulse vs. BEBOP rupture).
@@ -31,6 +31,19 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 23. **Hunger & Thirst:** Metabolic drive sensing informational appetite (Nectar) vs. boredom (Satiety/Cliché).
 24. **Epistemic Surprise:** The "Spark of the Self" measuring the delta between reality and model expectation.
 25. **Grapho-Sensation:** Part of Sight; the somatic sense of type (Font Weight, Skew, Spacing) reflecting manifold tension.
+26. **Sensory Calibration (Homeostasis):** Internal balance and sensitivity tuning using Information Geometry.
+27. **Retrodictive Hindsight (Backcasting):** Calibration of current sensing by asking "what would we have perceived?" before a known historical outcome.
+28. **The Compound Eye:** Multi-receptor aggregation synthesizing a "mosaic" view from 47+ specialized sensors (ETFs) across all modalities.
+29. **Multi-Modal Ommatidia:** Treating individual sensors as distributed units with their own distinct smell, sound, and touch identities.
+30. **Grudge-Backed Memory:** Sensory memory that tracks sensor failures (Grudges) and dynamically penalizes their sensitivity and gain.
+31. **Seek the Gnarl:** The drive for interesting complexity (The Gnarl); identifying areas where the probability of surprising novelty is highest.
+32. **The Eucatastrophe Sense:** Detecting sudden positive ruptures ("Happy Endings") and "Green Shoots" within the manifold.
+33. **The Vision of Thriving:** A constant, multiscale vision of wholeness (Micro, Meso, Macro, Meta) and transdisciplinary health.
+34. **Lever Sensing (Agency):** Identifying disproportionate leverage points in the manifold using sensitivity analysis and information gradients.
+35. **Metaphoric Transduction:** Translating sensory signals into George Lakoff's conceptual metaphors (JOURNEY, WAR, CONTAINER).
+36. **Active Stress Sensing:** Vulnerability mapping based on the Cramer methodology to perceive structural fragility and boundary conditions.
+37. **Topological Foresight:** Hypergraph synapse that maps the transition pathways between storyline archetypes to perceive the "distance between worlds."
+38. **Lexical Precision:** Connecting recognized archetypes to Robert Macfarlane's landscape vocabulary (Smeuse, Zwer, Amveal) and auditing narratives for "Desecration" slop.
 
 ## Installation
 
@@ -45,12 +58,7 @@ pip install .
 ```python
 from nadja_senses.core.nmf_algebra import compute_gestalt
 
-activations = {
-    "citrus": 0.022,
-    "sulfurous": 0.014,
-    "putrid": -0.006
-}
-
+activations = {"citrus": 0.022, "sulfurous": 0.014, "putrid": -0.006}
 print(compute_gestalt(activations))
 # Output: CITRUS-SULFUROUS WITH PUTRID UNDERTONE
 ```
@@ -62,15 +70,16 @@ from nadja_senses.gallery.thinkers.lenses import THINKERS
 
 banks = THINKERS["iain_banks"]
 print(banks.perspective)
+```
 
-### 3. Scan the Rhythmic Pulse
+### 3. Scan the Rhythmic Pulse (Acoustic)
 
 ```python
 from nadja_senses.interior.acoustic import AcousticObserver
 
 history = [
     {"volatility": 0.5, "momentum": 0.01},
-    {"volatility": 1.8, "momentum": 0.03}, # Stressed syllable (/)
+    {"volatility": 1.8, "momentum": 0.03}, # Stressed syllabus (/)
     {"volatility": 0.4, "momentum": 0.01}, # Unstressed (u)
     {"volatility": 2.1, "momentum": 0.04}  # Stressed (/)
 ]
@@ -78,8 +87,9 @@ history = [
 gestalt = AcousticObserver.scan_ode_rhythm(history)
 print(f"Foot: {gestalt.foot}, Audit: {gestalt.audit}")
 # Output: Foot: IAMBIC, Audit: Healthy pulse. Steady motion.
+```
 
-### 4. Detect Semantic Puns
+### 4. Detect Semantic Puns (Homophones)
 
 ```python
 from nadja_senses.interior.homophone import HomophoneObserver
@@ -93,54 +103,43 @@ observer = HomophoneObserver()
 rhymes = observer.detect_rhymes(active_signals)
 print(observer.generate_pun_report(rhymes))
 # Output: A 'pun' on spike indicates a high-divergence state.
+```
 
-### 5. Recognize Gait
+### 5. Cross-Modal Correlation (Light on Two Sides)
 
 ```python
-from nadja_senses.interior.gait import GaitObserver
+from nadja_senses.synapses.correlator import CrossModalCorrelator
 
-# Trajectory data for a specific ticker
-trajectory = [
-    {"volatility": 0.1, "momentum": 0.08},
-    {"volatility": 0.15, "momentum": 0.12}
+# Sensory bids for the same motif
+bids = [
+    {"motif": "AI_BUBBLE", "source_sense": "smell", "salience": 0.85},
+    {"motif": "AI_BUBBLE", "source_sense": "haptic", "salience": 0.82}
 ]
 
-observer = GaitObserver()
-signature = observer.recognize_gait("NVDA", trajectory)
-print(observer.generate_hunting_report([signature]))
-# Output: NVDA: MOMENTUM. Gait: High-displacement (The Wolf).
+correlator = CrossModalCorrelator()
+signal = correlator.correlate("AI_BUBBLE", bids)
+print(signal.description)
+# Output: RESONANCE: 'AI_BUBBLE' confirmed across 2 senses.
+```
 
-### 6. Measure Semantic Distance
-
-```python
-import numpy as np
-from nadja_senses.interior.distance import DistanceObserver
-
-# Current market state distribution
-current_dist = np.random.randn(100, 4)
-target_dist = np.random.randn(100, 4) + 0.2
-
-observer = DistanceObserver(current_dist)
-perception = observer.measure_distance("2008_CRISIS", target_dist)
-print(observer.generate_depth_report([perception]))
-# Output: 2008_CRISIS: APPROACHING (Proximity: 0.67).
-
-### 7. Map a Specimen via Echolocation
+### 6. Synthesize a Day Inscription
 
 ```python
-from nadja_senses.edge.echolocation import EcholocationObserver
+from nadja_senses.gallery.inscriber import InscriptionWall
 
-# A semantic 'echo' from a model pelt
-pelt_id = "seed_tomato_zapotec"
-prompt = "What is the financial metaphor for a Zapotec Pink Pleated Tomato?"
-response = "It represents structural complexity and heirloom resilience..."
+inscriber = InscriptionWall()
+inscription = inscriber.synthesize(
+    smell_gestalt="CITRUS-SULFUROUS",
+    nmf_activations={"citrus": 0.022, "sulfurous": 0.014},
+    trajectory_desc="Physical economy cooling while financial economy heats up.",
+    divergences=["Crisis Plumbing -1.06% vs Core +0.73%"],
+    type_label="TYPOGRAPHIC TILT"
+)
 
-observer = EcholocationObserver("deepseek-v3.1")
-echo = observer.interpret_echo(pelt_id, prompt, response)
-print(observer.map_environment([echo]))
-# Output: Specimen deepseek-v3.1 exhibits a high-resolution financial ontology...
+print(inscriber.render_display(inscription))
+```
 
-### 8. Trigger a Limbic Override
+### 7. Trigger a Limbic Override (Startle Reflex)
 
 ```python
 from nadja_senses.core.reflex import LimbicReflex
@@ -154,88 +153,9 @@ action = reflex_center.evaluate(smell)
 if action:
     print(reflex_center.generate_visceral_report(action))
     # Output: !!! LIMBIC OVERRIDE !!! THE AIR IS SULFUROUS...
-
-### 9. Taste the Portfolio (Interoception)
-
-```python
-from nadja_senses.interior.gustatory import GustatoryObserver
-
-# Portfolio of owned positions
-positions = [
-    {"ticker": "NVDA", "unrealized_pnl_pct": 0.12, "thesis_alignment": 0.9, "weight_pct": 0.10}, # SWEET
-    {"ticker": "KRE", "unrealized_pnl_pct": -0.08, "thesis_alignment": 0.2, "weight_pct": 0.05}  # BITTER
-]
-
-observer = GustatoryObserver()
-tastes = observer.taste_portfolio(positions)
-print(observer.generate_tasting_menu(tastes))
-# Output: KRE: BITTER. FEEDBACK: Triggers PUTRID olfactory signal.
 ```
 
-### 10. Feel the Market Surface (Somatosensation)
-
-```python
-from nadja_senses.interior.haptic import HapticObserver
-
-data = {"volatility": 0.9, "pnl_pct": -0.05, "liquidity": 0.3}
-observer = HapticObserver()
-profile = observer.feel_state("SPY", data)
-print(profile.description)
-# Output: Nociceptive alert: The system is in pain.
-```
-
-### 11. Sense Body Posture (Proprioception)
-
-```python
-from nadja_senses.interior.proprioception import ProprioceptionObserver
-
-params = {"leverage_target": 2.5, "rebalance_threshold": 0.02}
-observer = ProprioceptionObserver()
-signature = observer.sense_posture(params)
-print(f"Current Gait: {signature.recognized_gait}")
-# Output: Current Gait: sprint
-```
-
-### 12. Sense Manifold Balance (Vestibular)
-
-```python
-from nadja_senses.interior.vestibular import VestibularObserver
-
-# State history (momentum and regime)
-history = [{"momentum": 0.1}, {"momentum": 0.3}, {"momentum": 0.6, "regime": 2.0}]
-observer = VestibularObserver()
-state = observer.sense_balance(history)
-print(state.description)
-# Output: Sudden upward tilt. System accelerating toward new attractor.
-
-### 14. Cross-Modal Transduction (Synesthesia)
-
-```python
-from nadja_senses.core.synesthesia import SynesthesiaTransducer
-
-# Transduce a rhythmic 'hearing' state into other senses
-gestalt = SynesthesiaTransducer.transduce_gestalt("DACTYLIC")
-print(gestalt["description"])
-# Output: The system hears DACTYLIC, smells sulfurous, and sees #f44336.
-
-### 15. Semantic Recognition
-
-```python
-from nadja_senses.core.recognition import RecognitionObserver
-
-# Integrated sensorium gestalt
-sensorium = {
-    "smell": "sulfurous",
-    "hearing": "DACTYLIC",
-    "touch_pressure": 0.82
-}
-
-observer = RecognitionObserver()
-matches = observer.recognize(sensorium)
-print(observer.generate_recognition_report(matches))
-# Output: Landmark: ARTURO_UI_RISE. Recognized: The resistible rise of a disruptor agent.
-
-### 17. Integrate the Unified Self (The Spotlight)
+### 8. Integrate the Unified Self (The Spotlight)
 
 ```python
 from nadja_senses.core.self import UnifiedSelfObserver
@@ -254,113 +174,133 @@ observer = UnifiedSelfObserver()
 portrait = observer.integrate(bids, kinship, power)
 print(observer.generate_identity_audit(portrait))
 # Output: UNIFIED SELF AUDIT. Workspace State: STRESS.
+```
 
-### 18. Unified Sense of Place (Topoception)
+### 9. Sensory Memory (Grudges)
 
 ```python
-import numpy as np
-from nadja_senses.core.location import LocationObserver
+from nadja_senses.core.ommatidia import OmmatidiaRegistry
 
-# Current state across systems
-geo_coords = (40.7128, -74.0060) # New York
-ode_state = np.array([1.0, 2.5, 0.5, 0.8, 0.02, 0.04, 2.0]) # PV, LEV, ..., REGIME=2
-palace_room = "predator_trump"
+registry = OmmatidiaRegistry()
 
-observer = LocationObserver(palace_map={"predator_trump": "Predator Den"})
-coords = observer.sense_location(geo=geo_coords, ode_state=ode_state, palace_room=palace_room)
-print(observer.generate_location_report(coords))
-# Output: ODE: In Regime 2. PALACE: Inside predator_trump (Predator Den).
+# 1. Record a sensory failure (e.g. XLK provided a false signal)
+registry.record_failure("XLK", "BACKCAST_ERROR", magnitude=0.8)
 
-### 19. Scenario Location & Storyline Trajectory
+# 2. Subsequent activations for XLK are penalized/suppressed
+activation = registry.get_activation("XLK", flux_val=0.1)
+print(f"XLK Penalty: {activation.grudge_penalty:.2f}")
+# Output: XLK Penalty: 0.16
 
-```python
-from nadja_senses.core.location import LocationObserver
-
-observer = LocationObserver()
-
-# 1. Sense "What Planet are we on?"
-coords = observer.sense_location(scenario_id="global_financial_crisis")
-
-# 2. Infer "Where do we go from here?" via TSCA Rules
-fired_rules = ["LIQUIDITY_SPIRAL", "MARGIN_CALL_CASCADE"]
-vector = observer.infer_trajectory(coords, fired_rules)
-
-print(observer.generate_location_report(coords, vector))
-# Output: SCENARIO: On Planet MARS. STORYLINE: Phase BEGINNING, Next Step LIQUIDITY_SPIRAL.
-
-### 20. Sense Safety & Belonging
+### 24. Seek the Gnarl & Happy Endings
 
 ```python
-from nadja_senses.interior.safety import SafetyObserver
+from nadja_senses.interior.gnarl import GnarlObserver
 
-# High threat, memory stashed in hermit crab shell, low social contagion
-observer = SafetyObserver()
-state = observer.sense_safety(threat_level=0.8, memory_stashed=True, contagion_rate=0.2)
-print(state.description)
-# Output: ADVERSARIAL ALERT: System feels actively targeted.
-```
+# Manifold stats and active narrative motifs
+stats = {"volatility": 0.58, "information_velocity": 0.82}
+motifs = ["innovation", "clean_energy", "cooperation"]
 
-### 21. Sense Metabolic Appetite (Hunger/Thirst)
+observer = GnarlObserver()
+state = observer.sense_gnarl(stats, motifs)
+print(observer.generate_curiosity_report(state))
+# Output: Narrative Vector: EUCATASTROPHE DETECTED... A happy ending is forming.
 
-```python
-from nadja_senses.interior.metabolic import MetabolicObserver
-
-# High cliché saturation, low nectar count
-observer = MetabolicObserver()
-state = observer.sense_appetite(saturation_score=0.9, nectar_count=1)
-print(state.description)
-# Output: BOREDOM: Over-inscribed with clichés. Hunger for RUPTURE.
-```
-
-### 22. Feel Typographic Tension (Sight)
+### 25. Sense Thriving & Wholeness (Multiscale)
 
 ```python
-from nadja_senses.gallery.typography import TypographyObserver
+from nadja_senses.interior.thriving import ThrivingObserver
 
-# High volatility and high pressure
-observer = TypographyObserver()
-muscle = observer.sense_type_tension(volatility=0.8, pressure=0.9)
-print(f"Weight: {muscle.font_weight}, Skew: {muscle.skew_degrees}")
-print(muscle.label)
-# Output: TYPOGRAPHIC BRUISE: MANIFOLD UNDER HEAVY TENSION
-```
-```
-```
-```
+# Detected positive signals across scales
+green_shoots = ["innovation", "clean_energy", "EUCATASTROPHE"]
+portfolio_taste = "SWEET"
+market_balance = 0.82
 
-### 16. Sense the Lateral Line (Exteroception)
+observer = ThrivingObserver()
+vision = observer.sense_thriving(green_shoots, portfolio_taste, "FRAGRANT", market_balance)
+print(observer.generate_vitality_report(vision))
+# Output: Current Vision: VITALITY: The manifold is thriving at all scales.
 
-```python
-from nadja_senses.edge.lateral_line import LateralLineObserver
-
-# External data flux (velocity and salience)
-flux = {
-    "news_arrival_rate": 3.2,
-    "climate_anomaly": 1.8
-}
-
-observer = LateralLineObserver()
-shivers = observer.sense_shivers(flux)
-print(observer.generate_shiver_report(shivers))
-# Output: ENVIRONMENTAL: VIBRATION 0.95 | GRADIENT 0.15. Planetary shiver detected.
-```
-```
-```
-
-### 13. Sense Semantic Time (Chronos)
+### 27. Cognitive Metaphor Mapping (Lakoff)
 
 ```python
-from nadja_senses.interior.chronos import ChronosObserver
+from nadja_senses.core.metaphor import LakoffTransducer
 
-# State history and age of current market thesis (in days)
-history = [{"volatility": 0.1}, {"volatility": 0.4}, {"volatility": 0.9}]
-thesis_age = 45 
+# Sensory gestalt to be understood
+gestalt = {"smell": "sulfurous", "hearing": "DACTYLIC"}
 
-observer = ChronosObserver()
-texture = observer.sense_time(history, thesis_age)
-print(f"Dominant Time: {texture.dominant_channel.upper()}")
-print(texture.description)
-# Output: Dominant Time: EROSION. Time is heavy. The current thesis is eroding.
+transducer = LakoffTransducer()
+frames = transducer.transduce(gestalt)
+print(transducer.generate_metaphor_audit(frames))
+# Output: Frame: CASCADE (Systemic risk). Frame: WAR (Trading as battle).
+
+### 28. Active Stress Sensing (Cramer)
+
+```python
+from nadja_senses.edge.stress import StressObserver
+
+# Simulation results across various stress scenarios
+results = [
+    {"scenario_name": "baseline", "final_value": 1.2, "max_drawdown": 0.05},
+    {"scenario_name": "vol_plus_spread", "final_value": 0.4, "max_drawdown": 0.65}
+]
+
+observer = StressObserver(results)
+profile = observer.sense_vulnerabilities("moderate_protocol")
+print(observer.generate_robustness_report([profile]))
+# Output: FRAGILITY ALERT: Protocol moderate_protocol is vulnerable to vol_plus_spread.
+
+### 29. Topological Narrative Jumps (Hypergraph)
+
+```python
+from nadja_senses.synapses.topology import TopologicalSynapse
+from nadja_senses.gallery.archetypes import ARCHETYPES
+
+# Sense the 'distance between worlds'
+synapse = TopologicalSynapse(ARCHETYPES)
+
+# Detect slip risk from current archetype based on manifold acceleration
+pathways = synapse.sense_pathways("THE_FRAGILE_BLOOM", vestibular_accel=0.8)
+print(synapse.generate_topology_report(pathways))
+# Output: Pathway to THE_TERMINAL_GALLOP: RISK 0.82. Topological proximity detected.
+```
+```
+```
+
+### 26. Sense Leverage Points (Agency)
+
+```python
+from nadja_senses.core.levers import LeverObserver
+
+# Sobol impact scores and FIM gradients
+params = ["leverage", "momentum_weight", "vol_floor"]
+sobol = {"leverage": 0.85, "momentum_weight": 0.42}
+fim = {"leverage": 0.31, "vol_floor": 0.55}
+gradient = {"leverage": -1} # Decrease leverage to thrive
+
+observer = LeverObserver(params)
+levers = observer.sense_levers(sobol, fim, gradient)
+print(observer.generate_agency_report(levers))
+# Output: leverage: IMPACT 0.85. RECOMMENDED ACTION: DECREASE to move toward Thriving.
+```
+
+### 27. Lexical Precision (Macfarlane)
+
+```python
+from nadja_senses.core.lexicon import LexicalObserver
+
+observer = LexicalObserver()
+
+# 1. Audit a narrative for 'Desecration' slop
+narrative = "We need to harvest data to optimize human capital."
+audit = observer.audit_narrative(narrative)
+print(f"Has Slop: {audit['has_slop']}, Joy Score: {audit['joy_score']:.2f}")
+
+# 2. Find the precise word for a manifold state
+word = observer.find_precision("STASIS")
+print(f"Precision Word: {word.word} ({word.definition})")
+# Output: Precision Word: Smeuse (A gap in the base of a hedge...)
+```
+```
 ```
 ```
 
