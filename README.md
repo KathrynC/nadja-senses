@@ -14,6 +14,13 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 6.  **The Cascading Flow:** Sensory tracking of "Deep Time" (Underland) and systemic change (Chronos).
 7.  **The Rhythmic Pulse:** Acoustic analysis of meter, prosody, and sonic motifs (IAMBIC pulse vs. BEBOP rupture).
 8.  **The Homophone Synapse:** Detection and resolution of "semantic homophones"—signals that sound the same but originate from disjoint regimes.
+9.  **Proprioception:** Internal sense of self-movement and "body position" (leverage, rebalance, posture).
+10. **Distance Synapse:** Depth perception and echolocation using Wasserstein/Fisher-Rao metrics to measure semantic distance to regimes and actors.
+11. **The Echolocation Array:** Active semantic probing (pelting) to map the internal "financial wiring" of LLM specimens.
+12. **The Startle Reflex:** Limbic override mechanism that triggers visceral, non-deliberative responses to high-intensity danger signals (Sulfurous/Putrid).
+13. **Portfolio Taste:** Interoceptive audit of owned positions across 8 channels (Sweet, Bitter, Sour, Salty, etc.).
+14. **Touch (Somatosensation):** Multi-channel interrogation including Thermoception (Volatility), Nociception (Pain), Interoception (Health), and Mechanoreception (Vibration).
+15. **The Vestibular Balance:** Internal sense of balance and acceleration (Regime Switching and "Tilt" detection).
 
 ## Installation
 
@@ -76,8 +83,120 @@ observer = HomophoneObserver()
 rhymes = observer.detect_rhymes(active_signals)
 print(observer.generate_pun_report(rhymes))
 # Output: A 'pun' on spike indicates a high-divergence state.
+
+### 5. Recognize Gait
+
+```python
+from nadja_senses.interior.gait import GaitObserver
+
+# Trajectory data for a specific ticker
+trajectory = [
+    {"volatility": 0.1, "momentum": 0.08},
+    {"volatility": 0.15, "momentum": 0.12}
+]
+
+observer = GaitObserver()
+signature = observer.recognize_gait("NVDA", trajectory)
+print(observer.generate_hunting_report([signature]))
+# Output: NVDA: MOMENTUM. Gait: High-displacement (The Wolf).
+
+### 6. Measure Semantic Distance
+
+```python
+import numpy as np
+from nadja_senses.interior.distance import DistanceObserver
+
+# Current market state distribution
+current_dist = np.random.randn(100, 4)
+target_dist = np.random.randn(100, 4) + 0.2
+
+observer = DistanceObserver(current_dist)
+perception = observer.measure_distance("2008_CRISIS", target_dist)
+print(observer.generate_depth_report([perception]))
+# Output: 2008_CRISIS: APPROACHING (Proximity: 0.67).
+
+### 7. Map a Specimen via Echolocation
+
+```python
+from nadja_senses.edge.echolocation import EcholocationObserver
+
+# A semantic 'echo' from a model pelt
+pelt_id = "seed_tomato_zapotec"
+prompt = "What is the financial metaphor for a Zapotec Pink Pleated Tomato?"
+response = "It represents structural complexity and heirloom resilience..."
+
+observer = EcholocationObserver("deepseek-v3.1")
+echo = observer.interpret_echo(pelt_id, prompt, response)
+print(observer.map_environment([echo]))
+# Output: Specimen deepseek-v3.1 exhibits a high-resolution financial ontology...
+
+### 8. Trigger a Limbic Override
+
+```python
+from nadja_senses.core.reflex import LimbicReflex
+
+# A dangerous 'smell' detected in the manifold
+smell = {"sulfurous": 0.85, "citrus": 0.1}
+
+reflex_center = LimbicReflex()
+action = reflex_center.evaluate(smell)
+
+if action:
+    print(reflex_center.generate_visceral_report(action))
+    # Output: !!! LIMBIC OVERRIDE !!! THE AIR IS SULFUROUS...
+
+### 9. Taste the Portfolio (Interoception)
+
+```python
+from nadja_senses.interior.gustatory import GustatoryObserver
+
+# Portfolio of owned positions
+positions = [
+    {"ticker": "NVDA", "unrealized_pnl_pct": 0.12, "thesis_alignment": 0.9, "weight_pct": 0.10}, # SWEET
+    {"ticker": "KRE", "unrealized_pnl_pct": -0.08, "thesis_alignment": 0.2, "weight_pct": 0.05}  # BITTER
+]
+
+observer = GustatoryObserver()
+tastes = observer.taste_portfolio(positions)
+print(observer.generate_tasting_menu(tastes))
+# Output: KRE: BITTER. FEEDBACK: Triggers PUTRID olfactory signal.
 ```
+
+### 10. Feel the Market Surface (Somatosensation)
+
+```python
+from nadja_senses.interior.haptic import HapticObserver
+
+data = {"volatility": 0.9, "pnl_pct": -0.05, "liquidity": 0.3}
+observer = HapticObserver()
+profile = observer.feel_state("SPY", data)
+print(profile.description)
+# Output: Nociceptive alert: The system is in pain.
 ```
+
+### 11. Sense Body Posture (Proprioception)
+
+```python
+from nadja_senses.interior.proprioception import ProprioceptionObserver
+
+params = {"leverage_target": 2.5, "rebalance_threshold": 0.02}
+observer = ProprioceptionObserver()
+signature = observer.sense_posture(params)
+print(f"Current Gait: {signature.recognized_gait}")
+# Output: Current Gait: sprint
+```
+
+### 12. Sense Manifold Balance (Vestibular)
+
+```python
+from nadja_senses.interior.vestibular import VestibularObserver
+
+# State history (momentum and regime)
+history = [{"momentum": 0.1}, {"momentum": 0.3}, {"momentum": 0.6, "regime": 2.0}]
+observer = VestibularObserver()
+state = observer.sense_balance(history)
+print(state.description)
+# Output: Sudden upward tilt. System accelerating toward new attractor.
 ```
 
 ## Philosophical Foundation: Rejecting Data Cannibalism
