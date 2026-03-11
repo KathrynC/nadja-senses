@@ -11,7 +11,7 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 3.  **Light on Two Sides:** A divergence-detection system that requires multi-domain confirmation for any major signal.
 4.  **The Inscription Wall:** A synthesis layer that translates sensory gestalts into narrative strategies via Thinker Lenses (Banks, Lovecraft, Poincaré).
 5.  **Thick Walls:** Normalization filters that prevent "Data Cannibalism" by transforming raw data into high-animacy archetypes.
-6.  **The Cascading Flow:** Sensory tracking of "Deep Time" (Underland) and systemic change (Chronos).
+6.  **Chronaception (Temporal Texture):** Internal sense of the passage of "Semantic Time," measuring entropy, historical resonance, and thesis erosion.
 7.  **The Rhythmic Pulse:** Acoustic analysis of meter, prosody, and sonic motifs (IAMBIC pulse vs. BEBOP rupture).
 8.  **The Homophone Synapse:** Detection and resolution of "semantic homophones"—signals that sound the same but originate from disjoint regimes.
 9.  **Proprioception:** Internal sense of self-movement and "body position" (leverage, rebalance, posture).
@@ -21,6 +21,9 @@ This toolkit treats sensory integration as a "living" organism, metabolizing raw
 13. **Portfolio Taste:** Interoceptive audit of owned positions across 8 channels (Sweet, Bitter, Sour, Salty, etc.).
 14. **Touch (Somatosensation):** Multi-channel interrogation including Thermoception (Volatility), Nociception (Pain), Interoception (Health), and Mechanoreception (Vibration).
 15. **The Vestibular Balance:** Internal sense of balance and acceleration (Regime Switching and "Tilt" detection).
+16. **Pheromonal Sensing:** Senses subliminal mood signals (Fear, Greed, Exhaustion) from non-textual flow markers (VIX, Dark Pools).
+17. **Magnetoreception:** Field navigation perceiving the "magnetic pull" of major market attractors and poles (USD, Gold, BTC).
+18. **Synesthesia:** Cross-modal transduction that maps signals across senses (Hearing → Smell → Sight) for unified perception.
 
 ## Installation
 
@@ -197,6 +200,33 @@ observer = VestibularObserver()
 state = observer.sense_balance(history)
 print(state.description)
 # Output: Sudden upward tilt. System accelerating toward new attractor.
+
+### 14. Cross-Modal Transduction (Synesthesia)
+
+```python
+from nadja_senses.core.synesthesia import SynesthesiaTransducer
+
+# Transduce a rhythmic 'hearing' state into other senses
+gestalt = SynesthesiaTransducer.transduce_gestalt("DACTYLIC")
+print(gestalt["description"])
+# Output: The system hears DACTYLIC, smells sulfurous, and sees #f44336.
+```
+
+### 13. Sense Semantic Time (Chronos)
+
+```python
+from nadja_senses.interior.chronos import ChronosObserver
+
+# State history and age of current market thesis (in days)
+history = [{"volatility": 0.1}, {"volatility": 0.4}, {"volatility": 0.9}]
+thesis_age = 45 
+
+observer = ChronosObserver()
+texture = observer.sense_time(history, thesis_age)
+print(f"Dominant Time: {texture.dominant_channel.upper()}")
+print(texture.description)
+# Output: Dominant Time: EROSION. Time is heavy. The current thesis is eroding.
+```
 ```
 
 ## Philosophical Foundation: Rejecting Data Cannibalism

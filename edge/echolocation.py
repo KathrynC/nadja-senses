@@ -38,7 +38,25 @@ class EcholocationObserver:
             smell_fingerprint={"sulfurous": 0.1, "fragrant": 0.4} # Placeholder
         )
 
-    def map_environment(self, echoes: List[SemanticEcho]) -> str:
-        """Infer the 'ontology' of the specimen based on a series of echoes."""
-        # Analysis of how the model maps heirloom seeds to financial concepts
-        return f"Specimen {self.model_id} exhibits a high-resolution financial ontology with a bias toward 'Complex Resilience'."
+    def map_environment(self, echoes: List[SemanticEcho]) -> Dict[str, Any]:
+        """Infer the structural 'walls' and 'open spaces' of the specimen's ontology.
+        
+        Analyzes a sequence of echoes to map where the model 'sees' 
+        structure vs. where it hallucinates or provides generic output.
+        """
+        # 1. Structural Resolution: average salience of echoes
+        resolution = sum(e.salience for e in echoes) / len(echoes) if echoes else 0.0
+        
+        # 2. Obstacle Detection: identifies areas of high resistance (e.g. 'Ruptures')
+        obstacles = [e.pelt_id for e in echoes if e.smell_fingerprint.get("sulfurous", 0) > 0.5]
+        
+        # 3. Echo Depth: complexity of the response vs. generic baseline
+        depth = sum(len(e.echo_response) for e in echoes) / 500.0 # Normalized
+        
+        return {
+            "model_id": self.model_id,
+            "structural_resolution": round(resolution, 2),
+            "detected_obstacles": obstacles,
+            "ontology_depth": round(depth, 2),
+            "description": f"Specimen {self.model_id} shows a structural depth of {depth:.2f} with {len(obstacles)} major ruptures."
+        }
